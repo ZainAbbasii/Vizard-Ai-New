@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cutroom | Turn a YouTube video into five short clips</title>
+  <meta name="description" content="Paste a YouTube link. Cutroom downloads the video, picks five moments worth sharing, crops them to vertical, and adds captions when the video has them.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>Cutroom</a>
+      <nav class="nav" aria-label="Main">
+        <a href="#how">How it works</a>
+        <a href="#expect">What to expect</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn--primary" href="#try">Make clips</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <h1>Turn a YouTube video into five short clips.</h1>
+        <p class="lede">Paste a link. Cutroom downloads the video, picks five moments worth sharing, crops them to vertical, and burns in captions when the video has them.</p>
+
+        <form class="try" id="try" novalidate>
+          <label class="sr-only" for="video-url">YouTube link</label>
+          <div class="try-row">
+            <input id="video-url" name="url" type="url" inputmode="url" placeholder="https://www.youtube.com/watch?v=..." autocomplete="off" required>
+            <button class="btn btn--primary" type="submit" id="run">Make 5 clips</button>
+          </div>
+
+          <div class="try-options">
+            <label for="format">Format</label>
+            <select id="format" name="format">
+              <option value="vertical">Vertical 9:16 (Shorts, Reels, TikTok)</option>
+              <option value="square">Square 1:1</option>
+              <option value="original">Original shape</option>
+            </select>
+            <span id="code-field" hidden>
+              <label for="access-code">Access code</label>
+              <input id="access-code" name="accessCode" type="password" autocomplete="off">
+            </span>
+          </div>
+
+          <label class="check">
+            <input type="checkbox" id="rights" name="confirmRights">
+            <span>I own this video or have permission to make clips from it.</span>
+          </label>
+
+          <p class="status" id="config-note" role="status"></p>
+          <div class="progress" id="progress" hidden>
+            <progress id="bar" max="100" value="0" aria-label="Progress"></progress>
+            <p id="stage-text" role="status" aria-live="polite"></p>
+          </div>
+          <p class="status" id="status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="stage" id="stage" hidden>
+          <div class="stage-head">
+            <span class="stage-title" id="stage-title"></span>
+            <span id="stage-meta"></span>
+          </div>
+          <ul class="notes" id="notes"></ul>
+          <div class="clips" id="clips"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--paper" id="who">
+      <div class="wrap split">
+        <div>
+          <h2>Built for people who already publish long video.</h2>
+          <p class="lede">If an hour of talking should become a week of posts, start here.</p>
+        </div>
+        <ul class="audience">
+          <li><h3>Podcasters and creators</h3><p>Pull shorts from every episode without opening an editor.</p></li>
+          <li><h3>Coaches and consultants</h3><p>Turn talks and workshops into clips people can scroll.</p></li>
+          <li><h3>Marketing teams</h3><p>Stretch one webinar into a month of social posts.</p></li>
+          <li><h3>Agencies and freelancers</h3><p>Get a first cut for every client video in minutes.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="wrap">
+        <h2>What happens after you paste the link.</h2>
+        <ol class="steps steps--four">
+          <li>
+            <h3>Download</h3>
+            <p>The video is fetched at up to 720p on this server.</p>
+          </li>
+          <li>
+            <h3>Read the captions</h3>
+            <p>YouTube's captions become a transcript with timestamps.</p>
+          </li>
+          <li>
+            <h3>Pick five moments</h3>
+            <p>Each stretch of speech is scored. The five best that don't overlap win.</p>
+          </li>
+          <li>
+            <h3>Cut and reframe</h3>
+            <p>Each moment is trimmed, cropped to your format, and captioned.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--paper" id="expect">
+      <div class="wrap split">
+        <div>
+          <h2>What to expect, honestly.</h2>
+          <p class="lede">This is a simple clipper, not a studio.</p>
+        </div>
+        <ul class="audience">
+          <li><h3>Cropping is centered</h3><p>Clips are cropped from the middle of the frame. There is no face tracking, so a speaker off to one side can be cut off.</p></li>
+          <li><h3>Picks are rule-based</h3><p>Moments are chosen by scoring speech, not by understanding the video. Review them before you post.</p></li>
+          <li><h3>Captions need captions</h3><p>On-screen text appears only when the video has captions. Without them, clips are spaced evenly through the video.</p></li>
+          <li><h3>It takes a few minutes</h3><p>Long videos take longer. Clips are deleted from the server after a couple of hours, so download what you want.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap split">
+        <div>
+          <h2>Questions people ask first.</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Which videos can I use?</summary>
+            <p>Only videos you own or have permission to clip. Downloading other people's videos can break YouTube's terms and copyright law. Private videos, members-only videos, and live streams do not work.</p>
+          </details>
+          <details>
+            <summary>Why did my link fail?</summary>
+            <p>YouTube sometimes blocks downloads that come from hosting providers and asks the visitor to prove they are not a bot. If you see that message, the site owner needs to configure a cookies file for the server.</p>
+          </details>
+          <details>
+            <summary>Why are there no captions on my clips?</summary>
+            <p>Either the video has no captions, or the server could not render text onto the video. The page tells you which when it happens.</p>
+          </details>
+          <details>
+            <summary>How long can the video be?</summary>
+            <p id="faq-limit">The limit is set by the site owner. Long videos use more time and disk space.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta">
+      <div class="wrap">
+        <h2>Find the clips hiding in your last upload.</h2>
+        <a class="btn" href="#try">Paste a link</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>&copy; <span id="year"></span> Cutroom.</span>
+      <nav aria-label="Footer">
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#try">Make clips</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "cutroom",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Paste a YouTube link, get five short clips. Self-hosted: yt-dlp + ffmpeg, no third-party clipping service.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "postinstall": "node scripts/install-ytdlp.js",
+    "update:ytdlp": "node scripts/install-ytdlp.js --force",
+    "test": "node test/run.js && node test/pipeline.js",
+    "test:e2e": "node test/e2e.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "optionalDependencies": {
+    "ffmpeg-static": "^5.2.0"
+  }
+}
