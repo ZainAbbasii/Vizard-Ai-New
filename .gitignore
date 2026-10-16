@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Secrets: never commit these. Set them in the host's dashboard instead.
+.env
+.env.*
+!.env.example
+*cookies*.txt
+
+# Downloaded at install time / created at runtime
+bin/
+work/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build and cache output
+dist/
+.cache/
+coverage/
